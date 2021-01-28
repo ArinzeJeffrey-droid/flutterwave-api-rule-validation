@@ -1,4 +1,6 @@
 const express = require("express");
+const dotenv = require("dotenv")
+dotenv.config({ path: "./.env" })
 const { checkConditionOperator, validateRequiredObjectKeys, getFieldValue, runValidation } = require("./utils");
 
 const app = express()
@@ -39,6 +41,6 @@ app.post("/validate-rule", (req, res) => {
 
 
 
-const port = 4200
+const port = process.env.PORT || 4200
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
